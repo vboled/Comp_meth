@@ -1,2 +1,2 @@
 # Comp_meth
-СХС
+Kirill Loch
