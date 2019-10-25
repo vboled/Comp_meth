@@ -4,7 +4,19 @@ TYPE *yacoby_iter(TYPE **A, TYPE *b, const int size)
 {
     TYPE *x = new TYPE[size];
     TYPE *x1 = new TYPE[size];
+    TYPE **B = new TYPE *[size];
 
+    for (int i = 0; i < size; i++)
+    {
+        B[i] = new TYPE[size];
+        for (int j = 0; j < size; j++)
+        {
+            if (i != j)
+                B[i][j] = -A[i][j] / A[i][i];
+            else
+                B[i][i] = 0;
+        }
+    }
     TYPE eps1 = (1 - norm_1_m(B, size)) / norm_1_m(B, size) * eps;
     int h = 0;
 	while (norm_1_v(diff_v(x1, x, size), size) > eps1)
